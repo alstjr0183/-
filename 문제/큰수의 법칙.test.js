@@ -1,21 +1,3 @@
-/*
-배열크기 , 덧셈횟수 , 같은수반복가능
-
-1. 문자열 줄바꿈 기준으로 배열로 나누기 => 띄어쓰기제거 => 공백을 기준으로 배열나누기 => number 타입으로 변환
-3. aaray2는 2번째 배열 내림차순으로 변환
-4. 덧셈 식 ex) 6+6+6+5+6+6+6+5
-    1. array1[1] 횟수만큼 반복문  
-    2. if(카운트 < 같은수반복횟수){
-            제일 높은수를 더하기
-            카운트 + 1
-        } else {
-            2번째 높은수 더하기
-            카운트 초기화
-        }
-
-*/
-
-
 function solution (number){
     const array1 = number.split('\n')[0].replaceAll(' ','').split('').map((string)=>{
         return Number(string)
