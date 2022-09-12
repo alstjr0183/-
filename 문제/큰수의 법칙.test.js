@@ -1,9 +1,9 @@
 function solution (number){
-    const array1 = number.split('\n')[0].replaceAll(' ','').split('').map((string)=>{
+    const array1 = number.split('\n')[0].split(' ').map((string)=>{
         return Number(string)
     })
     
-    const array2 =  number.split('\n')[1].replaceAll(' ','').split('').sort((a,b)=> b-a).map((string)=>{
+    const array2 =  number.split('\n')[1].split(' ').sort((a,b)=> b-a).map((string)=>{
         return Number(string)
     })
 
