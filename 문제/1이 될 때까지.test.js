@@ -1,22 +1,46 @@
-function solution ( value, count ) {
-    let startValue = value[0]
-    const divisionValue = value[1]
+// 재귀함수로 풀이
+function solution(value, count) {
+    const [n, k] = value
 
-    if(startValue === 1 ){
+    if (n === 1) {
         return count;
     }
 
-    if(startValue % divisionValue === 0){
-        startValue = startValue/divisionValue
+    if (n % k === 0) {
+        return solution([n / k, k], count + 1)
     } else {
-        startValue = startValue - 1
+        return solution([n - 1, k], count + 1)
     }
-
-    return solution([startValue, divisionValue] , count + 1)
 }
 
- describe('1이 될때까지',()=>{
-    it('케이스1 실행',()=>{
-        expect(solution([25,5],0)).toBe(2)
+// while문 풀이
+function solution2(value) {
+    let [n, k] = value
+
+    let count = 0
+
+    while (true) {
+        if (n === 1) {
+            return count
+        }
+
+        if (n % k === 0) {
+            n = n / k
+            count++
+        } else {
+            n = n - 1
+            count++
+        }
+
+    }
+}
+
+describe('1이 될때까지', () => {
+    it('solution1 실행', () => {
+        expect(solution([25, 5], 0)).toBe(2)
+    })
+
+    it('solution2 실행', () => {
+        expect(solution2([25, 5], 0)).toBe(2)
     })
 })
