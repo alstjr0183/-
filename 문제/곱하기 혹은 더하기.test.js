@@ -40,7 +40,6 @@ function solution3(numbers, result = numbers[0], count = 0) {
     }
 }
 
-
 // while 사용
 function solution4(numbers) {
     let [result] = numbers
@@ -50,15 +49,30 @@ function solution4(numbers) {
         if (numbers.length - 1 === count) {
             return result;
         }
-        console.log(result, count)
+
         if (numbers[count] > 1) {
             result = result * numbers[count + 1]
         } else {
             result = result + numbers[count + 1]
         }
+
         count++
     }
+}
 
+// map 사용
+function solution5(numbers) {
+    let [result] = numbers
+
+    let S = numbers.map((number, index) => {
+        if (number > 1) {
+            return result = result * numbers[index + 1]
+        } else {
+            return result = result + numbers[index + 1]
+        }
+    })
+
+    return S[S.length - 2]
 }
 
 
@@ -82,6 +96,11 @@ describe('', () => {
     it('while로 풀이', () => {
         expect(solution4([0, 2, 9, 8, 4])).toBe(576)
         expect(solution4([5, 6, 7])).toBe(210)
+    })
+
+    it('map으로 풀이', () => {
+        expect(solution5([0, 2, 9, 8, 4])).toBe(576)
+        expect(solution5([5, 6, 7])).toBe(210)
     })
 })
 
