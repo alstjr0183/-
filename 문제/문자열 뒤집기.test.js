@@ -88,6 +88,34 @@ function solution3(numbers, zero = 0, one = 0, count = 0) {
     }
 }
 
+// while 사용
+function solution4(numbers) {
+    let S = []
+    let temporary = []
+
+    for (let i = 0; i < numbers.length; i++) {
+        temporary.push(numbers[i])
+        if (numbers[i] !== numbers[i + 1]) {
+            S.push(temporary)
+            temporary = []
+        }
+    }
+
+    let zero = 0
+    let one = 0
+    let count = 0
+
+    while (true) {
+        if (S.length === count) {
+            return Math.min(...[zero, one])
+        }
+
+        if (S[count].includes(0)) zero = zero + 1
+        if (S[count].includes(1)) one = one + 1
+
+        count++
+    }
+}
 
 describe('', () => {
     it('for문 풀이', () => {
@@ -100,6 +128,10 @@ describe('', () => {
 
     it('재귀함수 풀이', () => {
         expect(solution3([0, 0, 0, 1, 1, 0, 0])).toBe(1)
+    })
+
+    it('while 풀이', () => {
+        expect(solution4([0, 0, 0, 1, 1, 0, 0])).toBe(1)
     })
 })
 
