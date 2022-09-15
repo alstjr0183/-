@@ -62,11 +62,31 @@ function solution2(numbers) {
 }
 
 // 재귀함수
-function solution3(numbers, S = 0, temporary = 0, zero = 0, one = 0) {
+function solution3(numbers, zero = 0, one = 0, count = 0) {
+    let S = []
+    let temporary = []
 
+    for (let i = 0; i < numbers.length; i++) {
+        temporary.push(numbers[i])
+
+        if (numbers[i] === numbers[i + 1]) {
+        } else {
+            S.push(temporary)
+            temporary = []
+        }
+    }
+
+    if (count === S.length) {
+        // sort를 사용해서 작은수 return
+        return [zero, one].sort((a, b) => a - b)[0]
+    }
+
+    if (S[count].includes(0)) {
+        return solution3(numbers, zero + 1, one, count + 1)
+    } else {
+        return solution3(numbers, zero, one + 1, count + 1)
+    }
 }
-
-
 
 
 describe('', () => {
@@ -79,7 +99,7 @@ describe('', () => {
     })
 
     it('재귀함수 풀이', () => {
-        expect(solution2([0, 0, 0, 1, 1, 0, 0])).toBe(1)
+        expect(solution3([0, 0, 0, 1, 1, 0, 0])).toBe(1)
     })
 })
 
