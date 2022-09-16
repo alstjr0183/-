@@ -34,7 +34,6 @@ function solution3(money) {
 
     n.map((item) => {
         if (target < item) {
-            console.log(target)
             return target
         } else {
             target = target + item
