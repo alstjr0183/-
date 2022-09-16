@@ -5,6 +5,7 @@ function solution1(N, M, array) {
 
     const answer = 0
 
+
     // for (let i = 0; i < N - 1; i++) {
     //     for(let ii = 0+; ii<)
     // }
