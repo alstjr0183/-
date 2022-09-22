@@ -1,9 +1,9 @@
-function solution1() {
+function solution() {
 
 }
 
 describe('', () => {
-    it('solution1 실행', () => {
-
+    it('solution 실행', () => {
+        expect(solution()).toBe()
     })
 })
