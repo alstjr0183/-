@@ -56,10 +56,11 @@ function solution3(str) {
     // })
 
     // 정리
-    const obj = str.split('').reduce((acc, cur) => ({
-        ...acc,
-        [cur]: (acc[cur] || 0) + 1
-    }), {})
+    const obj = str.split('')
+        .reduce((acc, cur) => ({
+            ...acc,
+            [cur]: (acc[cur] || 0) + 1
+        }), {})
 
     return Object.entries(obj)
         .sort((([, a], [, b]) => b - a))
